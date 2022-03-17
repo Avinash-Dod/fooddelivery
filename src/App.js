@@ -1,23 +1,34 @@
-//import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 import HeaderComponent from './components/HeaderComponent';
 import Container from './components/Container';
-import SignInform from './components/SignInform';
 import Footer from './components/FooterComponent';
-function App(props) {
-  const Record=[
-    {
-      "firstName":"Avinash",
-      "lastName":"Dod",
-      "Address":"kabir Marg",
-      "mno":8989084940
-    }
-  ]
+import DataHandle from './components/DataHandle';
+const DUMMY_EXPENSES=[
+  {
+    "id":1,
+    "firstName":"Avinash",
+    "lastName":"Dod",
+    "Address":"kabir Marg",
+    "mno":8989084940
+  }
+];
+
+  function App(props) {
+    const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+  
+    const dataHandler = (expense) => {
+      setExpenses((prevExpenses) => {
+        return [expense, ...prevExpenses];
+      });
+    };
+  
   return (
     <div>
     <HeaderComponent />
-    <Container Details={Record} />
-    <SignInform />
+    <DataHandle sendData={dataHandler} />
+    < Container Details={expenses} />
+    
     <Footer />
     </div>
   );

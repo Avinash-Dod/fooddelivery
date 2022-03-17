@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import './SignInform.css'
-
 function SignInform(props)
 {   
     const [enteredfirstName,setfirstname] = useState('');
@@ -28,21 +27,22 @@ function SignInform(props)
     function onSubmitHandler(event)
     {
         event.preventDefault();
-        const Data={
+        const pData={
             firstName:enteredfirstName,
             lastName:enteredlastName,
-            address:enteredAddress,
+            Address:enteredAddress,
             mno:enteredMno
-
-        }
-        //console.log(Data)
-        props.onsaveData(Data);
+        };        
+        props.onSaveData(pData)
+        console.log(pData)
         setfirstname('');
         setlastname('');
         setAddress('');
         setMno('');
+    
+
         
-    }
+    };
     
     return(
         
@@ -50,22 +50,22 @@ function SignInform(props)
                    <form onSubmit={onSubmitHandler}>
                        <div className='Input'>
               <label name="fname">First Name</label>
-              <input type="text" name="firstname" onChange={firstNameHandler} value={enteredfirstName}></input>
+              <input type="text" name="firstname" onChange={firstNameHandler} value={enteredfirstName} required></input>
               </div>
              
               <div className='Input'>
               <label name="lname">Last Name</label>
-              <input type="text"  name="lastname" onChange={lastNameHandler} value={enteredlastName}></input>
+              <input type="text"  name="lastname" onChange={lastNameHandler} value={enteredlastName} required></input>
               </div>
              
               <div className='Input'>
               <label name="fname">Address</label>
-              <input type="text" name="Address" onChange={addressHandler} value={enteredAddress} ></input>
+              <input type="text" name="Address" onChange={addressHandler} value={enteredAddress} required></input>
             </div>
               
               <div className='Input'>
               <label name="fname">Mobile Number</label>
-              <input type="text" name="Mobile Number" onChange={mnoHandler} value={enteredMno}></input>
+              <input type="text" name="Mobile Number" onChange={mnoHandler} value={enteredMno} required></input>
             </div>
              
             <input type="submit" value="submit"></input>
@@ -73,6 +73,7 @@ function SignInform(props)
             
              
             </form>
+            
                 </div>
               
             

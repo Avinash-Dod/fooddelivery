@@ -1,28 +1,36 @@
 function Container(props)
 {
     return(
-        <div className="container-fluid">
-        <h1>Welcome</h1>
-        <ul>
-        <div className="name">
-        
-        <li> {props.Details[0].firstName}</li>
-        </div>
-        <div className="lastname">
-        
-        <li> {props.Details[0].lastName}</li>  
-        </div>
-        <div className="Address">
-        
-        <li> {props.Details[0].Address}</li> 
-        </div>
-        <div className="MNO">
-        
-        <li> {props.Details[0].mno}</li>
-        </div>
-        </ul>
-        </div>
+        <div className="">
+      
+      {props.Details.map((exp) => ( 
+         <div>
+           
+          <ul><strong>
+<div className="name">
 
-    );
+<li> {exp.firstName}</li>
+</div>
+<div className="lastname">
+
+<li> {exp.lastName}</li>  
+</div>
+<div className="Address">
+
+<li> {exp.Address}</li> 
+</div>
+<div className="MNO">
+
+<li> {exp.mno}</li>
+</div></strong>
+</ul>
+
+          </div>
+        ))}
+
+    </div>
+
+
+    )
 }
 export default Container;

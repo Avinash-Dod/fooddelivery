@@ -1,16 +1,18 @@
+//import InputForm from "./InputForm";
 import SignInform from "./SignInform";
 
-function dataHandle(props) {
 
-  const onSaveDataHandler = (enterdData) =>
+function DataHandle(props) {
+
+  const DataHandler = (enteredData) =>
   {
-    const personData={
-      ...enterdData,
+    const pData={
+      ...enteredData,
       id : Math.floor( 10 +  Math.random().toString()*90)
 
     }  
-    //console.log(personData)
-    props.personData(personData);
+    console.log(pData)
+    props.sendData(pData);
     
   }
  
@@ -20,12 +22,12 @@ function dataHandle(props) {
        
     <body>
    
-  <SignInform  onsaveData={onSaveDataHandler} />
+  <SignInform  onSaveData={DataHandler} />
     
     </body>
   </div>
 );
  }
  
- export default dataHandle;
+ export default DataHandle;
  
